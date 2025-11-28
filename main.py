@@ -7,18 +7,18 @@ from statisztika_SZPL import szavak_szama_SZPL, karakter_szam_SZPL, atlag_szohos
 class StatisztikaAblak_SZPL:
     def __init__(self, master):
         self.master = master
-        master.title("Statisztika Készítő SZPL")
+        master.title("Betű-szó-szám statisztika számoló egy szövegben SZPL")
 
-        self.szoveg_bevitel = scrolledtext.ScrolledText(master, wrap=tk.WORD, width=60, height=15)
+        self.szoveg_bevitel = scrolledtext.ScrolledText(master, wrap=tk.WORD, width=100, height=15)
         self.szoveg_bevitel.pack(pady=10, padx=10)
 
         self.keres_label = tk.Label(master,
-                                    text="Kérem írjon be egy tetszőleges szöveget, hogy a betűk, szavak, számok statisztikáját számolhassuk!",
+                                    text="Kérem írjon be egy tetszőleges szöveget, hogy abban a betűk, szavak, számok statisztikáját számolhassuk!",
                                     fg="darkblue",
                                     font=("Helvetica", 12, "italic"))
         self.keres_label.pack(pady=(0, 5))
 
-        self.szamitas_gomb = tk.Button(master, text="Statisztika Számítása", command=self.szamitas_vegzes_SZPL)
+        self.szamitas_gomb = tk.Button(master, text="Statisztika számítása", command=self.szamitas_vegzes_SZPL)
         self.szamitas_gomb.pack(pady=5)
 
         self.eredmeny_keret = tk.Frame(master)
@@ -29,7 +29,7 @@ class StatisztikaAblak_SZPL:
         self.eredmeny_label.pack(pady=10)
 
         self.uj_szamitas_gomb = tk.Button(self.eredmeny_keret,
-                                          text="ÚJ SZÁMÍTÁS",
+                                          text="ÚJ SZÁMÍTÁST SZERETNÉK",
                                           command=self.visszaallitas_SZPL)
         self.uj_szamitas_gomb.pack(pady=5)
 
@@ -37,7 +37,7 @@ class StatisztikaAblak_SZPL:
         szoveg = self.szoveg_bevitel.get(1.0, tk.END).strip()
 
         if not szoveg:
-            eredmenyek = "Kérem, adjon meg szöveget a statisztikához."
+            eredmenyek = "a"
             self.eredmeny_label.config(text=eredmenyek)
             return
 
